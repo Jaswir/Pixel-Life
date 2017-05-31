@@ -12,6 +12,9 @@ public class Darkness : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float fadeoutTimer;
     private float startTimer;
+    private bool narrated;
+
+    public bool hasResult;
 
     void Start()
     {
@@ -27,9 +30,18 @@ public class Darkness : MonoBehaviour
         spriteRenderer.color = curColor;
 
         if (fadeoutTimer >= fadeoutTime)
+        { 
+            ExecuteResults();
+        }
+    }
+
+
+    private void ExecuteResults()
+    {
+        if (hasResult)
         {
-            Narrator.Instance.narrate(narration_key);
-            Destroy(this);
+            Result result = GetComponent<Result>();
+            result.Execute();
         }
     }
 
@@ -38,6 +50,12 @@ public class Darkness : MonoBehaviour
         startTimer += Time.deltaTime;
         if (startTimer >= fadeoutStartTime)
         {
+            if (!narrated)
+            {
+                Narrator.Instance.narrate(narration_key);
+                narrated = true;
+            }
+
             Fade();
         }       
     }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/NoWhere.unity
+- path: Assets/Scenes/DadsHome.unity
   isLoaded: 1
   isActive: 1

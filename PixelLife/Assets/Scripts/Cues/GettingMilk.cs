@@ -9,7 +9,7 @@ public class GettingMilk : Switch
 {
     public SpriteRenderer roomSpriteRenderer;
     public Sprite afterSpriteRoom;
-    public GameObject AFewMomentsLater;   
+    public GameObject AFewMomentsLater;
     public string narration_key;
     public float narration_waitTime;
     public Player Roger;
@@ -20,11 +20,13 @@ public class GettingMilk : Switch
     private float timeCardDuration;
     private float timeCardTimer;
 
+    public bool hasResult;
 
-    
+
+
     public override void Activate()
     {
-       DoTimeCard();
+        DoTimeCard();
     }
 
     void DoTimeCard()
@@ -48,7 +50,18 @@ public class GettingMilk : Switch
         AFewMomentsLater.SetActive(false);
 
         Narrator.Instance.narrate(narration_key, 3.0f);
+        Invoke("ExecuteResults", 3.0f);
+
         Destroy(this);
+    }
+
+    private void ExecuteResults()
+    {
+        if (hasResult)
+        {
+            Result result = GetComponent<Result>();
+            result.Execute();
+        }
     }
 
     void Update()
