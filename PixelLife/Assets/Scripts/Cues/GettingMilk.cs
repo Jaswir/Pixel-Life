@@ -49,10 +49,9 @@ public class GettingMilk : Switch
         Bottles.SetActive(true);
         AFewMomentsLater.SetActive(false);
 
-        Narrator.Instance.narrate(narration_key, 3.0f);
-        Invoke("ExecuteResults", 3.0f);
+        Narrator.Instance.narrate(narration_key, narration_waitTime);
+        Invoke("ExecuteResults", narration_waitTime + 5f);
 
-        Destroy(this);
     }
 
     private void ExecuteResults()
@@ -62,6 +61,8 @@ public class GettingMilk : Switch
             Result result = GetComponent<Result>();
             result.Execute();
         }
+
+        Destroy(this);
     }
 
     void Update()
@@ -72,6 +73,7 @@ public class GettingMilk : Switch
             if (timeCardTimer >= timeCardDuration)
             {
                 ReturnFromTimeCard();
+                TimeCardActivated = false;
             }
         }
     }

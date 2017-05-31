@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SoundEffector : MonoBehaviour {
+public class SoundEffector : MonoBehaviour
+{
 
     //simpleton pattern.
     public static SoundEffector Instance;
@@ -41,7 +42,11 @@ public class SoundEffector : MonoBehaviour {
 
     public void play(string name, float time = 0.0f)
     {
-        StartCoroutine(Play(time, name));
+        //corner case empty string
+        if (name != "" && name != null)
+        {
+            StartCoroutine(Play(time, name));
+        }
     }
     private IEnumerator Play(float time, string name)
     {

@@ -8,13 +8,19 @@ public class ElevatorControl : Event
     public SpriteRenderer elevatorClosed;
     public Sprite elevatorOpen;
 
+    private AudioSource audio;
+
     public override void Run()
     {
-        OpenElevator();
+        audio = GetComponent<AudioSource>();
+        audio.Play();
+        StartCoroutine(OpenElevator(audio.clip.length));
     }
 
-    void OpenElevator()
+    IEnumerator OpenElevator(float time)
     {
+        yield return new WaitForSeconds(time);
+        audio.Stop();
         ElevatorCollider.SetActive(false);
         elevatorClosed.sprite = elevatorOpen;
     }

@@ -7,14 +7,16 @@ public class Click : MonoBehaviour
 {
     public Texture2D HandCursorTexture2D;
     public Texture2D normalCursorTexture2D;
+    public string soundeffect_key;
 
     void OnMouseDown()
     {
         Event Event = GetComponent<Event>();
         Event.Run();
 
-        Cursor.SetCursor(normalCursorTexture2D, Vector2.zero, CursorMode.Auto);
+        SoundEffector.Instance.play(soundeffect_key);
 
+        Cursor.SetCursor(normalCursorTexture2D, Vector2.zero, CursorMode.Auto);
         Destroy(this);
     }
 

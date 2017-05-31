@@ -84,18 +84,19 @@
     <Compile Include="Assets\Scripts\Cues\Darkness.cs" />
     <Compile Include="Assets\Scripts\Cues\EnterRoom.cs" />
     <Compile Include="Assets\Scripts\Cues\GettingMilk.cs" />
+    <Compile Include="Assets\Scripts\Cues\Unveil.cs" />
     <Compile Include="Assets\Scripts\Cues\Switch.cs" />
     <Compile Include="Assets\Scripts\Events\Act.cs" />
     <Compile Include="Assets\Scripts\Events\ElevatorControl.cs" />
     <Compile Include="Assets\Scripts\Events\Event.cs" />
     <Compile Include="Assets\Scripts\Events\Narration.cs" />
-    <Compile Include="Assets\Scripts\TimeCard.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Results\ActivateClick.cs" />
     <Compile Include="Assets\Scripts\Results\NastyFeet.cs" />
     <Compile Include="Assets\Scripts\Results\RemoveCollider.cs" />
     <Compile Include="Assets\Scripts\Results\Result.cs" />
+    <Compile Include="Assets\Scripts\Results\TimeCard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
