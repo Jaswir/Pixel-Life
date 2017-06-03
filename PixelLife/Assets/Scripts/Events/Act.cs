@@ -36,7 +36,7 @@ public class Act : Event
 
     private void DisableMovement()
     {
-        player.movementEnabled = false;
+        player.DisableMovement();
     }
     private void PositionCharacters()
     {
@@ -68,7 +68,7 @@ public class Act : Event
 
     private void EnableMovement()
     {
-        player.movementEnabled = true;
+        player.EnableMovement();
     }
     private void FreeCameraPosition()
     {
