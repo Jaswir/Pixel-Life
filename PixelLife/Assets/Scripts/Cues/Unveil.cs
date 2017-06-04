@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Unveil : MonoBehaviour
 {
-
-
     private bool playerMoved;
     public GameObject hidden;
     public string soundeffect_key;

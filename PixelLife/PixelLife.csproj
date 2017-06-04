@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -66,6 +69,9 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -90,13 +96,17 @@
     <Compile Include="Assets\Scripts\Cues\GettingMilk.cs" />
     <Compile Include="Assets\Scripts\Cues\Switch.cs" />
     <Compile Include="Assets\Scripts\Cues\Unveil.cs" />
+    <Compile Include="Assets\Scripts\Ending\CreditsLogic.cs" />
+    <Compile Include="Assets\Scripts\Ending\EndingRoger.cs" />
     <Compile Include="Assets\Scripts\Events\Act.cs" />
     <Compile Include="Assets\Scripts\Events\Breakdown.cs" />
     <Compile Include="Assets\Scripts\Events\ElevatorControl.cs" />
     <Compile Include="Assets\Scripts\Events\Event.cs" />
     <Compile Include="Assets\Scripts\Events\Narration.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
+    <Compile Include="Assets\Scripts\Intro\IntroAnim.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Realization.cs" />
     <Compile Include="Assets\Scripts\Results\ActivateClick.cs" />
     <Compile Include="Assets\Scripts\Results\NastyFeet.cs" />
     <Compile Include="Assets\Scripts\Results\RemoveCollider.cs" />

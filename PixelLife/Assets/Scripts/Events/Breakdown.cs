@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.ImageEffects;
 
 public class Breakdown : Event
 {
-
     public string narration_key;
     public Animator animator;
 
@@ -59,6 +59,9 @@ public class Breakdown : Event
     private float noiseScareTimer;
     private bool noiseScarred;
 
+    public float switchTime;
+    public string switchScene;
+
     public float timer;
     private bool isRunning;
 
@@ -88,6 +91,7 @@ public class Breakdown : Event
             HandleRogerDaggerImageSetting();
             HandleBloodyKnifeImageSetting();
             LostItSoundEffect();
+            SceneSwitch();
 
             timer += Time.deltaTime;
         }
@@ -108,8 +112,7 @@ public class Breakdown : Event
                     noiseAndGrain.enabled = false;
                     roomRenderer.color = Color.black;
                     rogerRenderer.color = Color.black;
-                    noiseScarred = true;
-                    Destroy(this);
+                    noiseScarred = true;  
                 }
             }
         }
@@ -242,6 +245,15 @@ public class Breakdown : Event
                 flickered = true;
             }
 
+        }
+    }
+
+    private void SceneSwitch()
+    {
+        if (timer >= switchTime)
+        {
+            SceneManager.LoadScene(switchScene);
+            Destroy(this);
         }
     }
 
