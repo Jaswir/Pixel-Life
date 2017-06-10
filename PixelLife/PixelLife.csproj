@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\Results\RemoveCollider.cs" />
     <Compile Include="Assets\Scripts\Results\Result.cs" />
     <Compile Include="Assets\Scripts\Results\TimeCard.cs" />
+    <Compile Include="Assets\Scripts\UnDestroyable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
