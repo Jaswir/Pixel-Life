@@ -89,7 +89,9 @@
     <Compile Include="Assets\Scripts\Cues\Darkness.cs" />
     <Compile Include="Assets\Scripts\Cues\EnterRoom.cs" />
     <Compile Include="Assets\Scripts\Cues\GettingMilk.cs" />
-    <Compile Include="Assets\Scripts\Cues\RealizationHallucination.cs" />
+    <Compile Include="Assets\Scripts\Cues\HeadacheNoise.cs" />
+    <Compile Include="Assets\Scripts\Cues\PeopleMurder.cs" />
+    <Compile Include="Assets\Scripts\Cues\ReceptionistMurder.cs" />
     <Compile Include="Assets\Scripts\Cues\Switch.cs" />
     <Compile Include="Assets\Scripts\Cues\Unveil.cs" />
     <Compile Include="Assets\Scripts\Cues\Ytrigger.cs" />
