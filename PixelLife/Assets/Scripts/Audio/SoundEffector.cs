@@ -39,6 +39,10 @@ public class SoundEffector : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public float getEffectLength(string clipName)
+    {
+        return audioCollection[clipName].length;
+    }
 
     public void play(string name, float time = 0.0f)
     {

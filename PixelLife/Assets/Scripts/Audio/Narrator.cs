@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Narrator : MonoBehaviour {
+public class Narrator : MonoBehaviour
+{
 
     //simpleton pattern.
     public static Narrator Instance;
     private AudioSource audio;
-    private Dictionary<string, AudioClip> audioCollection = new Dictionary<string, AudioClip>();
+    private Dictionary<string , AudioClip> audioCollection = new Dictionary<string , AudioClip>();
 
     void Awake()
     {
@@ -19,7 +20,7 @@ public class Narrator : MonoBehaviour {
 
     private void SetupAudioCollection()
     {
-        foreach (AudioClip clip in Resources.LoadAll("Muziek/Narrator"))
+        foreach(AudioClip clip in Resources.LoadAll("Muziek/Narrator"))
         {
             audioCollection[clip.name] = clip;
         }
@@ -31,22 +32,25 @@ public class Narrator : MonoBehaviour {
     private void ApplySingleton()
     {
         //Singleton 
-        if (Instance == null)
+        if(Instance == null)
             Instance = this;
 
-        if (this != Instance)
+        if(this != Instance)
             Destroy(gameObject);
     }
 
-
-    public void narrate(string name, float time = 0.0f)
+    public float getNarrationLength(string clipName)
     {
-        StartCoroutine(Narrate(time, name));
+        return audioCollection[clipName].length;
     }
-    private IEnumerator Narrate(float time, string name)
+
+    public void narrate(string name , float time = 0.0f)
+    {
+        StartCoroutine(Narrate(time , name));
+    }
+    private IEnumerator Narrate(float time , string name)
     {
         yield return new WaitForSeconds(time);
-        audio.volume = 1.0f;
         audio.clip = audioCollection[name];
         audio.Play();
     }

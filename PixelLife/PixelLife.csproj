@@ -89,8 +89,10 @@
     <Compile Include="Assets\Scripts\Cues\Darkness.cs" />
     <Compile Include="Assets\Scripts\Cues\EnterRoom.cs" />
     <Compile Include="Assets\Scripts\Cues\GettingMilk.cs" />
+    <Compile Include="Assets\Scripts\Cues\RealizationHallucination.cs" />
     <Compile Include="Assets\Scripts\Cues\Switch.cs" />
     <Compile Include="Assets\Scripts\Cues\Unveil.cs" />
+    <Compile Include="Assets\Scripts\Cues\Ytrigger.cs" />
     <Compile Include="Assets\Scripts\Ending\CreditsLogic.cs" />
     <Compile Include="Assets\Scripts\Ending\EndingRoger.cs" />
     <Compile Include="Assets\Scripts\Events\Act.cs" />
@@ -103,13 +105,17 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Realization.cs" />
     <Compile Include="Assets\Scripts\Results\ActivateClick.cs" />
+    <Compile Include="Assets\Scripts\Results\BreakMusicFor.cs" />
+    <Compile Include="Assets\Scripts\Results\Die.cs" />
     <Compile Include="Assets\Scripts\Results\NastyFeet.cs" />
     <Compile Include="Assets\Scripts\Results\RemoveCollider.cs" />
     <Compile Include="Assets\Scripts\Results\Result.cs" />
     <Compile Include="Assets\Scripts\Results\TimeCard.cs" />
+    <Compile Include="Assets\Scripts\Shaders\PPImageEffect.cs" />
     <Compile Include="Assets\Scripts\UnDestroyable.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\Shaders\test0.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />

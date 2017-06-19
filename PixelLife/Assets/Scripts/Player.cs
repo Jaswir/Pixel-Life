@@ -11,26 +11,30 @@ public class Player : MonoBehaviour
     private bool movementEnabled = true;
 
     private Animator animator;
+    private Material shaderMaterial;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        shaderMaterial = Resources.Load<Material>("ShaderMaterials/test0");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (movementEnabled)
+        if(movementEnabled)
         {
             int moveVer = HandleMovement();
             HandleAnimation(moveVer);
+
         }
     }
 
     public void DisableMovement()
     {
         movementEnabled = false;
-        animator.SetInteger("State", 0);
+        animator.SetInteger("State" , 0);
     }
 
     public void EnableMovement()
@@ -38,35 +42,35 @@ public class Player : MonoBehaviour
         movementEnabled = true;
     }
 
-   
-    public void SimulateMovement(bool down, bool up, bool left, bool right)
+
+    public void SimulateMovement(bool down , bool up , bool left , bool right)
     {
-        int moveVer = SimulateWalking(down, up, left, right);
+        int moveVer = SimulateWalking(down , up , left , right);
         HandleAnimation(moveVer);
     }
-    private int SimulateWalking(bool down, bool up, bool left, bool right)
+    private int SimulateWalking(bool down , bool up , bool left , bool right)
     {
         int moveVer = 0;
         int moveHor = 0;
-        if (down)
+        if(down)
         {
             moveVer = -1;
         }
-        if (up)
+        if(up)
         {
             moveVer = 1;
         }
-        if (left)
+        if(left)
         {
             moveHor = -1;
         }
-        if (right)
+        if(right)
         {
             moveHor = 1;
         }
 
 
-        Vector3 Movement = new Vector3(moveHor, moveVer, 0f);
+        Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
         return moveVer;
     }
@@ -75,42 +79,46 @@ public class Player : MonoBehaviour
     {
         int moveVer = 0;
         int moveHor = 0;
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             moveVer = -1;
         }
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             moveVer = 1;
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             moveHor = -1;
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             moveHor = 1;
         }
 
+        //Effect shader with controls
+        //float curShaderSpeed = shaderMaterial.GetFloat("_frequency");
+        //shaderMaterial.SetFloat("_frequency" ,  moveHor * 10);
 
-        Vector3 Movement = new Vector3(moveHor, moveVer, 0f);
+
+        Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
 
         return moveVer;
     }
     private void HandleAnimation(int verticalMovement)
     {
-        if (verticalMovement == 1)
+        if(verticalMovement == 1)
         {
-            animator.SetInteger("State", 1);
+            animator.SetInteger("State" , 1);
         }
-        else if (verticalMovement == -1)
+        else if(verticalMovement == -1)
         {
-            animator.SetInteger("State", -1);
+            animator.SetInteger("State" , -1);
         }
         else
         {
-            animator.SetInteger("State", 0);
+            animator.SetInteger("State" , 0);
         }
     }
 }
