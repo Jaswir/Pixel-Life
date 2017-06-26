@@ -14,6 +14,7 @@ public class HeadacheNoise : Switch
     private float realizeTimer;
 
     public NoiseAndGrain noiseEffect;
+    public bool hasResult;
 
     public override void Activate()
     {
@@ -22,6 +23,7 @@ public class HeadacheNoise : Switch
 
     void Realization()
     {
+        GameObject.FindWithTag("Player").GetComponent<Player>().DisableMovement();
         SoundEffector.Instance.play("realization");
         realizeTime = SoundEffector.Instance.getEffectLength("realization");
         noiseEffect.enabled = true;
@@ -35,6 +37,14 @@ public class HeadacheNoise : Switch
         {
             realizing = false;
             noiseEffect.enabled = false;
+            GameObject.FindWithTag("Player").GetComponent<Player>().EnableMovement();
+            if (hasResult)
+            {
+                Result result = GetComponent<Result>();
+                result.Execute();
+            }
+           
+            Destroy(this);
             return;
         }
 
