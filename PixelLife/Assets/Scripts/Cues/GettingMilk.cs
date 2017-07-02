@@ -45,7 +45,7 @@ public class GettingMilk : Switch
     {
         ChangeRooms();
         Roger.transform.position = playerSpawnPosition;
-        Roger.DisableMovement();
+        Roger.DisableMovement("Backward");
         Bottles.SetActive(true);
         AFewMomentsLater.SetActive(false);
 

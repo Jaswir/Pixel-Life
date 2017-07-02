@@ -8,6 +8,7 @@ public class Breakdown : Event
 {
     public string narration_key;
     public Animator animator;
+    private bool standsStill;
 
     public float flickerTimeOffset;
     public string flicker_soundeffect_key;
@@ -67,7 +68,7 @@ public class Breakdown : Event
 
     void Start()
     {
-        player.DisableMovement();
+        player.DisableMovement("Backward");
     }
 
     public override void Run()
@@ -173,7 +174,6 @@ public class Breakdown : Event
     }
     private void GoesToWork()
     {
-        player.DisableMovement();
         if (timer <= walkSequence0Time)
         {
             player.SimulateMovement(true, false, false, false);
@@ -186,6 +186,15 @@ public class Breakdown : Event
         {
             player.SimulateMovement(false, false, false, true);
         }
+        else
+        {
+            if (!standsStill)
+            {
+                player.DisableMovement("Backward");
+                standsStill = true;
+            }        
+        }
+
     }
 
     private void LostItSoundEffect()

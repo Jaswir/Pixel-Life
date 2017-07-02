@@ -23,7 +23,7 @@ public class HeadacheNoise : Switch
 
     void Realization()
     {
-        GameObject.FindWithTag("Player").GetComponent<Player>().DisableMovement();
+        GameObject.FindWithTag("Player").GetComponent<Player>().DisableMovement("none");
         SoundEffector.Instance.play("realization");
         realizeTime = SoundEffector.Instance.getEffectLength("realization");
         noiseEffect.enabled = true;

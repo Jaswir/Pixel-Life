@@ -27,12 +27,14 @@ public class EndingRoger : MonoBehaviour
         TimerToNExt += 1 * Time.deltaTime;
         if (movementEnabled)
         {
-            int moveVer = HandleMovement();
-            HandleAnimation(moveVer);
+            int[] movementVals = HandleMovement();
+            int moveHor = movementVals[0];
+            int moveVer = movementVals[1];
+            HandleAnimation(moveHor , moveVer);
         }
     }
 
-    private int HandleMovement()
+    private int[] HandleMovement()
     {
         int moveVer = 0;
         int moveHor = 0;
@@ -86,22 +88,27 @@ public class EndingRoger : MonoBehaviour
         Vector3 Movement = new Vector3(moveHor, moveVer, 0f);
         transform.position += Movement * Time.deltaTime * speed;
 
-        return moveVer;
+        return new int[] {moveHor, moveVer};
     }
 
-    private void HandleAnimation(int verticalMovement)
+    private void HandleAnimation(int horizontalMovement , int verticalMovement)
     {
-        if (verticalMovement == 1)
+        HandleIdles(horizontalMovement , verticalMovement);
+        animator.SetInteger("Horizontal" , horizontalMovement);
+        animator.SetInteger("Vertical" , verticalMovement);
+    }
+
+    private void HandleIdles(int horizontalMovement , int verticalMovement)
+    {
+        bool isIdleState = animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        if(horizontalMovement == 0 && verticalMovement == 0)
         {
-            animator.SetInteger("State", 1);
-        }
-        else if (verticalMovement == -1)
-        {
-            animator.SetInteger("State", -1);
+            animator.enabled = false;
         }
         else
         {
-            animator.SetInteger("State", 0);
+            if(!animator.enabled)
+                animator.enabled = true;
         }
     }
 }

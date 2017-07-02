@@ -13,7 +13,7 @@ public class Ytrigger : Switch
     {
         Narrator.Instance.narrate(narration_key);
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player.DisableMovement();;
+        player.DisableMovement("Backward");;
         StartCoroutine(Destruction(narrationLength));
     }
 

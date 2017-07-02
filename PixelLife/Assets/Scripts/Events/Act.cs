@@ -8,6 +8,7 @@ public class Act : Event
     public Player player;
     public Camera camera;
 
+    public string stopDirection;
     [Tooltip("Effects the Zoom, lower value is more zoom")]
     public float fieldOfView;
     private float oldFieldOfView;
@@ -16,6 +17,7 @@ public class Act : Event
     public Vector3 zoomPosition;
     private Vector3 oldCamPosition;
     private bool curtainsOpen;
+
 
 
     public override void Run()
@@ -36,7 +38,7 @@ public class Act : Event
 
     private void DisableMovement()
     {
-        player.DisableMovement();
+        player.DisableMovement(stopDirection);
     }
     private void PositionCharacters()
     {

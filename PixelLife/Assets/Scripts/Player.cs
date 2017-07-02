@@ -7,9 +7,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    private bool movementEnabled = true;
+    public Sprite Forward;
+    public Sprite Backward;
+    public Sprite Left;
+    public Sprite Right;
 
+    private bool movementEnabled = true;
     private Animator animator;
+    
 
     void Awake()
     {
@@ -24,29 +29,46 @@ public class Player : MonoBehaviour
             int[] movementVals = HandleMovement();
             int moveHor = movementVals[0];
             int moveVer = movementVals[1];
-            HandleAnimation(moveHor, moveVer);
+            HandleAnimation(moveHor , moveVer);
         }
     }
 
-    public void DisableMovement()
+    public void DisableMovement(string stopDirection)
     {
         movementEnabled = false;
-        animator.SetInteger("Horizontal" , 0);
-        animator.SetInteger("Vertical" , 0);
-    }
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
+        if (stopDirection == "Forward")
+        {
+            sr.sprite = Forward;
+        }
+        else if(stopDirection == "Backward")
+        {
+            sr.sprite = Backward;
+        }
+        else if(stopDirection == "Left")
+        {
+            sr.sprite = Left;
+        }
+        else if(stopDirection == "Right")
+        {
+            sr.sprite = Right;
+        }
+
+        animator.enabled = false;
+    }
     public void EnableMovement()
     {
+        animator.enabled = true;
         movementEnabled = true;
     }
+
     public void SimulateMovement(bool down , bool up , bool left , bool right)
     {
-        int[] movementVals = SimulateWalking(down , up , left , right);
-        int moveHor = movementVals[0];
-        int moveVer = movementVals[1];
-        HandleAnimation(moveHor, moveVer);
+        SimulateWalking(down , up , left , right);
+        HandleAnimation(0 , -1);
     }
-    private int[] SimulateWalking(bool down , bool up , bool left , bool right)
+    private void SimulateWalking(bool down , bool up , bool left , bool right)
     {
         int moveVer = 0;
         int moveHor = 0;
@@ -70,7 +92,6 @@ public class Player : MonoBehaviour
 
         Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
-        return new int[] {moveHor, moveVer};
     }
 
     private int[] HandleMovement()
@@ -97,13 +118,25 @@ public class Player : MonoBehaviour
 
         Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
-        Debug.Log(string.Format("moveHor: {0}, moveVer: {1}", moveHor, moveVer));
-        return new int[]{moveHor, moveVer};
+        return new int[] { moveHor , moveVer };
     }
-    private void HandleAnimation(int  horizontalMovement , int verticalMovement)
+    private void HandleAnimation(int horizontalMovement , int verticalMovement)
     {
+        HandleIdles(horizontalMovement , verticalMovement);
         animator.SetInteger("Horizontal" , horizontalMovement);
-        animator.SetInteger("Vertical" , verticalMovement);       
+        animator.SetInteger("Vertical" , verticalMovement);   
     }
-
+    private void HandleIdles(int horizontalMovement, int verticalMovement)
+    {
+        bool isIdleState = animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        if (horizontalMovement == 0 && verticalMovement == 0)
+        {
+            animator.enabled = false;
+        }
+        else
+        {
+            if (!animator.enabled)
+                animator.enabled = true;
+        }
+    }
 }

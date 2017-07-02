@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Animated.unity
+- path: Assets/Scenes/ElevatorUp.unity
   isLoaded: 1
   isActive: 1
