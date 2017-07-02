@@ -6,18 +6,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     public float speed;
     private bool movementEnabled = true;
 
     private Animator animator;
-    private Material shaderMaterial;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
-        shaderMaterial = Resources.Load<Material>("ShaderMaterials/test0");
-
     }
 
     // Update is called once per frame
@@ -25,30 +21,32 @@ public class Player : MonoBehaviour
     {
         if(movementEnabled)
         {
-            int moveVer = HandleMovement();
-            HandleAnimation(moveVer);
-
+            int[] movementVals = HandleMovement();
+            int moveHor = movementVals[0];
+            int moveVer = movementVals[1];
+            HandleAnimation(moveHor, moveVer);
         }
     }
 
     public void DisableMovement()
     {
         movementEnabled = false;
-        animator.SetInteger("State" , 0);
+        animator.SetInteger("Horizontal" , 0);
+        animator.SetInteger("Vertical" , 0);
     }
 
     public void EnableMovement()
     {
         movementEnabled = true;
     }
-
-
     public void SimulateMovement(bool down , bool up , bool left , bool right)
     {
-        int moveVer = SimulateWalking(down , up , left , right);
-        HandleAnimation(moveVer);
+        int[] movementVals = SimulateWalking(down , up , left , right);
+        int moveHor = movementVals[0];
+        int moveVer = movementVals[1];
+        HandleAnimation(moveHor, moveVer);
     }
-    private int SimulateWalking(bool down , bool up , bool left , bool right)
+    private int[] SimulateWalking(bool down , bool up , bool left , bool right)
     {
         int moveVer = 0;
         int moveHor = 0;
@@ -72,13 +70,14 @@ public class Player : MonoBehaviour
 
         Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
-        return moveVer;
+        return new int[] {moveHor, moveVer};
     }
 
-    private int HandleMovement()
+    private int[] HandleMovement()
     {
         int moveVer = 0;
         int moveHor = 0;
+
         if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             moveVer = -1;
@@ -96,29 +95,15 @@ public class Player : MonoBehaviour
             moveHor = 1;
         }
 
-        //Effect shader with controls
-        //float curShaderSpeed = shaderMaterial.GetFloat("_frequency");
-        //shaderMaterial.SetFloat("_frequency" ,  moveHor * 10);
-
-
         Vector3 Movement = new Vector3(moveHor , moveVer , 0f);
         transform.position += Movement * Time.deltaTime * speed;
-
-        return moveVer;
+        Debug.Log(string.Format("moveHor: {0}, moveVer: {1}", moveHor, moveVer));
+        return new int[]{moveHor, moveVer};
     }
-    private void HandleAnimation(int verticalMovement)
+    private void HandleAnimation(int  horizontalMovement , int verticalMovement)
     {
-        if(verticalMovement == 1)
-        {
-            animator.SetInteger("State" , 1);
-        }
-        else if(verticalMovement == -1)
-        {
-            animator.SetInteger("State" , -1);
-        }
-        else
-        {
-            animator.SetInteger("State" , 0);
-        }
+        animator.SetInteger("Horizontal" , horizontalMovement);
+        animator.SetInteger("Vertical" , verticalMovement);       
     }
+
 }

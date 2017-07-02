@@ -18,12 +18,19 @@ public class ReceptionistMurder : Murder
     public Vector3 victimDeathPos;
     public Vector3 zoomPosition2;
     public float fieldOfView2;
+    public RuntimeAnimatorController BloodyController;
 
     public override void Awake()
     {
         base.Awake();
         backupAdio = GetComponent<AudioSource>();
         SetupActs();
+    }
+
+    public override void BreakDownStage()
+    {
+        base.BreakDownStage();
+        Roger.GetComponent<Animator>().runtimeAnimatorController = BloodyController;
     }
 
     private void SetupActs()
