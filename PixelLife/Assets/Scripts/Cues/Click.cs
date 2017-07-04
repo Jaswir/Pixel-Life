@@ -9,8 +9,10 @@ public class Click : MonoBehaviour
 
     void OnMouseDown()
     {
-        Event Event = GetComponent<Event>();
-        Event.Run();
+        foreach (Event e in GetComponents<Event>())
+        {
+            e.Run();
+        }
 
         SoundEffector.Instance.play(soundeffect_key);
 

@@ -13,15 +13,18 @@ public class Realization : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (!lightTurnedOff)
+        if (audioSource.clip != null)
         {
-            if (timer >= audioSource.clip.length)
-            {                
-                TurnOffLight();
-                RunEvent();
-                            
+            timer += Time.deltaTime;
+
+            if (!lightTurnedOff)
+            {
+                if (timer >= audioSource.clip.length)
+                {
+                    TurnOffLight();
+                    RunEvent();
+
+                }
             }
         }
     }

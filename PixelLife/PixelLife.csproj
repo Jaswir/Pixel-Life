@@ -91,6 +91,8 @@
     <Compile Include="Assets\Scripts\Cues\GettingMilk.cs" />
     <Compile Include="Assets\Scripts\Cues\HeadacheNoise.cs" />
     <Compile Include="Assets\Scripts\Cues\Switch.cs" />
+    <Compile Include="Assets\Scripts\Cues\Transition.cs" />
+    <Compile Include="Assets\Scripts\Cues\TransitionPart3.cs" />
     <Compile Include="Assets\Scripts\Cues\Unveil.cs" />
     <Compile Include="Assets\Scripts\Cues\Ytrigger.cs" />
     <Compile Include="Assets\Scripts\Ending\CreditsLogic.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\Scripts\Events\ElevatorControl.cs" />
     <Compile Include="Assets\Scripts\Events\Event.cs" />
     <Compile Include="Assets\Scripts\Events\Narration.cs" />
+    <Compile Include="Assets\Scripts\Events\TransitionPart2.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroAnim.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -118,7 +121,8 @@
     <Compile Include="Assets\Scripts\UnDestroyable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Shaders\test0.shader" />
+    <None Include="Assets\Scripts\Shaders\evaporation.shader" />
+    <None Include="Assets\Scripts\Shaders\hallucination.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />

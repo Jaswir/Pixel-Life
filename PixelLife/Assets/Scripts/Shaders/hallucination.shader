@@ -1,4 +1,4 @@
-﻿Shader "Psychodilias/test0"
+﻿Shader "Psychodilias/hallucination"
 {
 	Properties
 	{
