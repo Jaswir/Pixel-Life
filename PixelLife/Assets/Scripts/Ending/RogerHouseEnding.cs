@@ -13,10 +13,12 @@ public class RogerHouseEnding : MonoBehaviour {
     public GameObject PlayerSet;
     public Player _Player;
     public AudioSource EndMu;
+    public AudioSource Appear;
     private float Timer=0;
     private bool Kneel = false;
     private bool activation = false;
     public string scene;
+    public HeadacheNoise Effect;
 
 	void Start () {
         Family.SetActive(false);
@@ -34,18 +36,19 @@ public class RogerHouseEnding : MonoBehaviour {
         {
             Timer += 1;
 
-            if (Timer> 200)
+            if (Timer> 50)
             {
                 PlayerSet.SetActive(false);
                 Animation.SetActive(true);
                 Kneel = false;
                 activation = true;
+                EndMu.Play();
             }
         }
         if (activation == true)
         {
             Timer += 1;
-            if (Timer > 1500)
+            if (Timer > 1300)
             {
                 SceneManager.LoadScene(scene);
             }
@@ -59,9 +62,11 @@ public class RogerHouseEnding : MonoBehaviour {
         {
             _Player.movementEnabled = false;
             Kneel = true;
+            //Appear.Play();
+            // Missing the camera effect
             Family.SetActive(true);
             Woman.SetActive(true);
-            EndMu.Play();
+         
         }
     }
     
