@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Sprite Left;
     public Sprite Right;
 
-    private bool movementEnabled = true;
+    public bool movementEnabled = true;
     private Animator animator;
     
 
