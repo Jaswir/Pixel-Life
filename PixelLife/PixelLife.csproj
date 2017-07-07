@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Cues\Ytrigger.cs" />
     <Compile Include="Assets\Scripts\Ending\CreditsLogic.cs" />
     <Compile Include="Assets\Scripts\Ending\EndingRoger.cs" />
+    <Compile Include="Assets\Scripts\Ending\RogerHouseEnding.cs" />
     <Compile Include="Assets\Scripts\Events\Act.cs" />
     <Compile Include="Assets\Scripts\Events\Breakdown.cs" />
     <Compile Include="Assets\Scripts\Events\ElevatorControl.cs" />

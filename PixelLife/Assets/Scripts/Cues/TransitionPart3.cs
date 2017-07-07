@@ -34,9 +34,9 @@ public class TransitionPart3 : Event
     void Update()
     {
         //Have crazy effect explosion
-        crazyExplosiontimer += Time.deltaTime/crazyExplosionTime;
+        crazyExplosiontimer += Time.deltaTime / crazyExplosionTime;
         float magnitude = Mathf.Lerp(minMagnitude , maxMagnitude , crazyExplosiontimer);
-        float chromAbb = Mathf.Lerp(0, 800f, crazyExplosiontimer);
+        float chromAbb = Mathf.Lerp(0 , 800f , crazyExplosiontimer);
         evaporateMat.SetFloat("_Magnitude" , magnitude);
         VignAndChrom.chromaticAberration = chromAbb;
 
@@ -45,6 +45,7 @@ public class TransitionPart3 : Event
         {
             hallucination.mat = defaultHallu;
             InitializeShaders();
+            hallucination.mat.SetFloat("_yPercentage" , 0f);
             player.EnableMovement();
             skitzo.SetActive(true);
             Destroy(this);
@@ -55,7 +56,7 @@ public class TransitionPart3 : Event
     {
         VignAndChrom.chromaticAberration = 0.0f;
         evaporateMat.SetFloat("_Magnitude" , 0f);
-        halluMat.SetFloat("_yPercentage" , 1f);
+        halluMat.SetFloat("_yPercentage" , 1f);     
     }
 
 }

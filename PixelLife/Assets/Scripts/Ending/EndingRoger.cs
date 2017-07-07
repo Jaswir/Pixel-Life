@@ -13,6 +13,8 @@ public class EndingRoger : MonoBehaviour
     public AudioSource Tape1;
     public AudioSource Tape2;
     private bool TheEnd = false;
+    public float tapeSwitchTime;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -76,11 +78,12 @@ public class EndingRoger : MonoBehaviour
             Tape1.volume = 0.5f;
         }
 
-        if (TimerToNExt > 62)
+        if (TimerToNExt > tapeSwitchTime)
         {
             if (TheEnd == false)
             {
                 Tape1.Stop();
+                Debug.Log("Playing tape 2");
                 Tape2.Play();
                 TheEnd = true;
             }

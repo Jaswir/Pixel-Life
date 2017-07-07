@@ -7,12 +7,15 @@ public class CreditsLogic : MonoBehaviour
 
     public float fadeoutTime;
     public float fadeoutStartTime;
+    public float endTime;
+    public bool hasEndTime = false;
 
     private SpriteRenderer spriteRenderer;
     private float fadeoutTimer;
     private float startTimer;
+    public float endTimer;
     public GameObject Credits;
-
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -39,12 +42,21 @@ public class CreditsLogic : MonoBehaviour
     void Update()
     {
         startTimer += Time.deltaTime;
-        if (startTimer >= fadeoutStartTime)
+        if(startTimer >= fadeoutStartTime)
         {
             Fade();
-            if (Credits != null)
+            if(Credits != null)
             {
                 Credits.SetActive(true);
+            }
+        }
+
+        if (hasEndTime)
+        {
+            endTimer += Time.deltaTime;
+            if (endTimer >= endTime)
+            {
+                Credits.GetComponent<Animator>().Stop();
             }
         }
     }
