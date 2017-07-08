@@ -45,7 +45,7 @@ public class TransitionPart3 : Event
         {
             hallucination.mat = defaultHallu;
             InitializeShaders();
-            hallucination.mat.SetFloat("_yPercentage" , 0f);
+            hallucination.mat.SetFloat("_yPercentage" , 1f);
             player.EnableMovement();
             skitzo.SetActive(true);
             Destroy(this);

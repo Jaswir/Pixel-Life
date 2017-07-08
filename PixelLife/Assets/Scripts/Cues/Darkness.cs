@@ -13,6 +13,7 @@ public class Darkness : MonoBehaviour
     private float fadeoutTimer;
     private float startTimer;
     private bool narrated;
+    public bool hasNarration = true;
 
     public bool hasResult;
 
@@ -50,7 +51,7 @@ public class Darkness : MonoBehaviour
         startTimer += Time.deltaTime;
         if (startTimer >= fadeoutStartTime)
         {
-            if (!narrated)
+            if (!narrated && hasNarration)
             {
                 Narrator.Instance.narrate(narration_key);
                 narrated = true;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Transition : MonoBehaviour
 {
     public Player player;
+    public PPImageEffect hallu;
     public Material evaporateMat;
     public float minMagnitude;
     public float maxMagnitude;
@@ -20,6 +21,7 @@ public class Transition : MonoBehaviour
         SoundEffector.Instance.play("realizationFlicker");
         float soundLength = SoundEffector.Instance.getEffectLength("realizationFlicker");
         evaporateMat.SetFloat("_Magnitude", 0f);
+        hallu.mat.SetFloat("_yPercentage", 0f);
         Invoke("EnablePlayerMovement" , soundLength);
 
     }

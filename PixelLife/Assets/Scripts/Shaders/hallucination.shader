@@ -61,7 +61,7 @@ Shader "Psychodilias/hallucination"
 					//Has hallucination percentage
 
 					//Applies wave on image
-					if (i.uv.y > _yPercentage)
+					if (i.uv.y < _yPercentage)
 					{
 						hallucination = float2( 0 , sin (i.uv.x * _frequency + _Time[1] * _speed)  * _amplitude );
 					}
@@ -69,7 +69,7 @@ Shader "Psychodilias/hallucination"
 					col = tex2D (_MainTex , i.uv + hallucination);
 
 					//Inverts color 
-					if (i.uv.y > _yPercentage)
+					if (i.uv.y < _yPercentage)
 					{
 						col = 1 - col;
 					}

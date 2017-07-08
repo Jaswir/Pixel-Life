@@ -83,7 +83,6 @@ public class EndingRoger : MonoBehaviour
             if (TheEnd == false)
             {
                 Tape1.Stop();
-                Debug.Log("Playing tape 2");
                 Tape2.Play();
                 TheEnd = true;
             }

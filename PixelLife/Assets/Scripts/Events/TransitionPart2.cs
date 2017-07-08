@@ -36,7 +36,7 @@ public class TransitionPart2 : Event
     void Start()
     {
         evaporateMat.SetFloat("_Magnitude" , 0f);
-        halluMat.SetFloat("_yPercentage" , 1f);
+        halluMat.SetFloat("_yPercentage" , 0f);
     }
     // Update is called once per frame
     void Update()
@@ -53,7 +53,7 @@ public class TransitionPart2 : Event
                 {
                     //De-evaporate
                     evaporateMat.SetFloat("_Magnitude" , minMagnitude);
-                    halluMat.SetFloat("_yPercentage" , 0f);
+                    halluMat.SetFloat("_yPercentage" , 1f);
                     tsState = TransitionState.Invert;
                 }
             }
@@ -63,7 +63,7 @@ public class TransitionPart2 : Event
                 inversionTimer += Time.deltaTime;
                 if(inversionTimer > inversionTime)
                 {
-                    halluMat.SetFloat("_yPercentage" , 1f);
+                    halluMat.SetFloat("_yPercentage" , 0f);
                     SoundEffector.Instance.Stop();
                     tsState = TransitionState.Done;
                 }
