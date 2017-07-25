@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelLife", "PixelLife.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelLife.Editor.Plugins", "PixelLife.Editor.Plugins.csproj", "{67241765-99B9-31CC-56E4-FF85347F47BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelLife.Editor", "PixelLife.Editor.csproj", "{27F5DF98-5537-B403-D3B5-31B9F61E3548}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{67241765-99B9-31CC-56E4-FF85347F47BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67241765-99B9-31CC-56E4-FF85347F47BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67241765-99B9-31CC-56E4-FF85347F47BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F5DF98-5537-B403-D3B5-31B9F61E3548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F5DF98-5537-B403-D3B5-31B9F61E3548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F5DF98-5537-B403-D3B5-31B9F61E3548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F5DF98-5537-B403-D3B5-31B9F61E3548}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

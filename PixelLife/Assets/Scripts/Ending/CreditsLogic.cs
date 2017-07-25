@@ -56,7 +56,7 @@ public class CreditsLogic : MonoBehaviour
             endTimer += Time.deltaTime;
             if (endTimer >= endTime)
             {
-                Credits.GetComponent<Animator>().StopPlayback();
+                Credits.GetComponent<Animator>().Stop();
             }
         }
     }

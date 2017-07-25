@@ -56,7 +56,7 @@ public class TransitionPart3 : Event
     {
         VignAndChrom.chromaticAberration = 0.0f;
         evaporateMat.SetFloat("_Magnitude" , 0f);
-        halluMat.SetFloat("_yPercentage" , 1f);     
+        halluMat.SetFloat("_yPercentage" ,0f);     
     }
 
 }

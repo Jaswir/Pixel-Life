@@ -66,7 +66,7 @@ Shader "Psychodilias/hallucination"
 						hallucination = float2( 0 , sin (i.uv.x * _frequency + _Time[1] * _speed)  * _amplitude );
 					}
 
-					col = tex2D (_MainTex , i.uv + hallucination);
+					col = tex2D (_MainTex , i.uv);
 
 					//Inverts color 
 					if (i.uv.y < _yPercentage)
